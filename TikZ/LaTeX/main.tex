@@ -1,0 +1,19 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{scope}[blend group=soft light]
+            \fill[red!20] (90:1.2) circle (2);
+            \fill[green!20] (210:1.2) circle (2);
+            \fill[blue!20] (330:1.2) circle (2);
+        \end{scope}
+        
+        \node at (90:2) {Typography};
+        \node at (210:2) {Design};
+        \node at (330:2) {Coding};
+        \node[font=\Large] {\LaTeX};
+    \end{tikzpicture}
+\end{document}

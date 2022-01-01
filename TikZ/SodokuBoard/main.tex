@@ -1,0 +1,32 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\def\w{0.3pt}
+
+\begin{document}
+    \begin{tikzpicture}[line width=\w]
+        \matrix[
+            nodes={fill=blue!20, minimum size=5mm, text=white, font=\sffamily\bfseries},
+            row sep=\w,
+            column sep=\w,
+        ] (sodoku) {
+            \node {}; & \node {}; & \node (s13) {}; & \node {2}; & \node {}; & \node (s16) {}; & \node {}; & \node {}; & \node {3}; \\
+            \node {}; & \node {}; & \node {6}; & \node {}; & \node {8}; & \node {}; & \node {}; & \node {7}; & \node {}; \\
+            \node (s31) {}; & \node {7}; & \node {}; & \node {}; & \node {}; & \node {1}; & \node {9}; & \node {}; & \node (s39) {}; \\
+            \node {3}; & \node {}; & \node {}; & \node {}; & \node {}; & \node {6}; & \node {2}; & \node {}; & \node {3}; \\
+            \node {}; & \node {1}; & \node {}; & \node {2}; & \node {}; & \node {}; & \node {}; & \node {5}; & \node {}; \\
+            \node (s61) {}; & \node {}; & \node {7}; & \node {1}; & \node {}; & \node {}; & \node {}; & \node {}; & \node (s69) {9}; \\
+            \node {}; & \node {}; & \node {8}; & \node {7}; & \node {}; & \node {}; & \node {}; & \node {2}; & \node {}; \\
+            \node {}; & \node {5}; & \node {}; & \node {1}; & \node {}; & \node {}; & \node {8}; & \node {}; & \node {}; \\
+            \node {6}; & \node {}; & \node (s93) {}; & \node {2}; & \node {}; & \node (s96) {2}; & \node {}; & \node {}; & \node {}; \\
+        };
+        
+        \draw[blue!50!black, solid] ([yshift=-0.2pt]s13.north east) -- ([yshift=0.2pt]s93.south east);
+        \draw[blue!50!black, solid] ([yshift=-0.2pt]s16.north east) -- ([yshift=0.2pt]s96.south east);
+        \draw[blue!50!black, solid] ([xshift=0.2pt]s31.south west) -- ([xshift=-0.2pt]s39.south east);
+        \draw[blue!50!black, solid] ([xshift=0.2pt]s61.south west) -- ([xshift=-0.2pt]s69.south east);
+        
+        \node [anchor=south, text opacity=0.1] at (sodoku) {\large\bfseries\sffamily SODOKU};
+    \end{tikzpicture}
+\end{document}

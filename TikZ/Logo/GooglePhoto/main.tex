@@ -1,0 +1,22 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\begin{document}
+    \begin{tikzpicture}
+        \pagecolor{black!50};
+        \fill[white] (0, 0) circle (2.5);
+        
+        \coordinate (A) at (1, 0);
+        \coordinate (O) at (0, 0);
+        \coordinate (B) at (0, 1);
+        \coordinate (C) at (-1, 0);
+        \coordinate (D) at (0, -1);
+        
+        \foreach \p/\angle/\color in {A/0/blue, B/90/red, C/180/yellow!75!red, D/270/green!50!black}{
+            \path[fill=\color, rotate=\angle, rounded corners=2pt] (\p) -- (0, 0) arc (180:360:1) -- cycle;
+        }
+        \node[text=white] at (0, -3) {\Large\bfseries\sffamily Google Photo};
+    \end{tikzpicture}
+\end{document}

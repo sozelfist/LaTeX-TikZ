@@ -1,0 +1,35 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+% preamble
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% define colors
+\definecolor{chrome red}{HTML}{eb0c01}
+\definecolor{chrome green}{HTML}{0fab01}
+\definecolor{chrome yellow}{HTML}{e1d400}
+\definecolor{chrome blue}{HTML}{0147ab}
+
+% set radius
+\def\rb{1.25 cm}
+\def\rw{1.55 cm}
+\def\r{3.4 cm}
+
+% define macros of paths
+\def\chromepath{(0, \rw) -- (30:\r) arc (30:150:\r) -- (210:\rw) arc(210:90:\rw)}
+\def\shadowchromepath{(210:\rw) -- (150:\r) -- (165:\rw) arc (165:210:\rw)}
+
+\begin{document}
+    \begin{tikzpicture}[transform shape, rotate=-2.5]
+        % draw light and shadow parts of chrome
+        \foreach \angle/\color in {0/chrome red, 120/chrome green, -120/chrome yellow}{
+            \path[fill=\color, rotate=\angle] \chromepath;
+            \path[fill=\color!90!black, rotate=\angle]
+            \shadowchromepath;
+        }
+        
+        % draw center of chrome
+        \path[fill=white] (0, 0) circle (\rw);
+        \path[fill=chrome blue] (0, 0) circle (\rb);
+    \end{tikzpicture}
+\end{document}

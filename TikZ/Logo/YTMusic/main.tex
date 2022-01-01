@@ -1,0 +1,12 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+
+\begin{document}
+    \begin{tikzpicture}[scale=2]
+        \fill[red] (0, 0) circle (0.35);
+        \draw[line width=0.02 cm, white] circle (0.2);
+        \fill[white] (0:0.1) -- (120:0.1) -- (240:0.1) -- cycle; 
+        \node at (0.9, 0) {\large\sffamily\bfseries YTMusic};
+    \end{tikzpicture}
+\end{document}

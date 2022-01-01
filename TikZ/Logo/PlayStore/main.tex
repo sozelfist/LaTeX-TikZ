@@ -1,0 +1,41 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+% preamble
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{xcolor}
+\usepackage{mathpazo}
+
+% define colors
+\definecolor{waterlime}{HTML}{10FF51}
+\definecolor{waterred}{HTML}{E9000F}
+\definecolor{watercyan}{HTML}{00D8E0}
+\definecolor{wateryellow}{HTML}{E4C900}
+
+\begin{document}
+    \begin{tikzpicture}
+        % specify coordinates
+        \coordinate (A) at (0:3);
+        \coordinate (B) at (120:3);
+        \coordinate (C) at (240:3);
+        \coordinate (D) at ($(A)!0.286!(C)$);
+        \coordinate (E) at ($(A)!0.286!(B)$);
+        \coordinate (F) at (
+            intersection cs:
+                first line={(B) -- (D)},
+                second line={(C) -- (E)}
+        );
+        
+        % clip drawing area
+        \clip[rounded corners=6pt] (A) -- (B) -- (C) -- cycle;
+        
+        % fill areas with colors
+        \path[fill=wateryellow] (A) -- (B) -- (C) -- cycle;
+        \path[fill=waterlime] (B) -- (F) -- (E) -- cycle;
+        \path[fill=watercyan] (B) -- (F) -- (C) -- cycle;
+        \path[fill=waterred] (C) -- (F) -- (D) -- cycle;
+        
+        % add watermark text
+        \draw (0, 0) node[anchor=center, shift={(-8pt, 0pt)}, text opacity=0.3] {\large\bfseries Play Store};
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{anyfontsize}
+
+\definecolor{dark blue}{HTML}{1f01c4}
+\definecolor{light blue}{HTML}{00b2f4}
+
+\def\r{1.55}
+\def\l{1.5}
+\def\hexagonpath{(30:\r) -- (90:\r) -- (150:\r) -- (210:\r) -- (270:\r) -- (330:\r) -- cycle}
+\def\lightdiamondpath{(90:\r) -- ++(0, \l) -- ++(-30:\l) -- ++(0, -\l) -- cycle}
+\def\darkdiamondpath{(90:\r) -- ++(0, \l) -- ++(210:\l) -- ++(0, -\l) -- cycle}
+
+\begin{document}
+    \begin{tikzpicture}
+        \path[fill=white] \hexagonpath;
+        \foreach \angle in {0, 120, 240}{
+            \begin{scope}[transform shape, rotate=\angle]
+                \path[fill=light blue] \lightdiamondpath;
+                \path[fill=dark blue] \darkdiamondpath;
+            \end{scope}
+        }
+        \node{
+            \begin{minipage}[t]{2.5cm}
+                \centering
+                \sffamily\bfseries
+                \fontsize{45pt}{1pt}\selectfont\textcolor{dark blue}{BK} \\[3pt]
+                \fontsize{15.5pt}{1pt}\selectfont\textcolor{light blue}{TP.HCM} 
+            \end{minipage}
+        };
+    \end{tikzpicture}
+\end{document}
