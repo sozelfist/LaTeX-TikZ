@@ -2,6 +2,20 @@
 
 📚 This is a repository for storing and sharing **LaTeX-TikZ**  and **PGFPlots** pictures.
 
+## Usage
+
+```sh
+# clone the repo
+$ git clone https://github.com/TruongNhanNguyen/LaTeX-TikZ.git
+# navigate to specify folder
+$ cd <folder-name>
+# example
+# cd TikZ/GitHubProfilePicture
+# compile .tex to .pdf
+$ pdflatex main.tex
+```
+
+
 ## My Github Profile Picture
 
 ![github](TikZ/GitHubProfilePicture/github-profile-picture.png)
