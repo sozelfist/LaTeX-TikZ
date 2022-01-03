@@ -1,0 +1,36 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath, amssymb, amsfonts, mathtools}
+
+\tcbset{
+    frogbox/.style={
+        enhanced,
+        colback=green!10, colframe=green!65!black,
+        enlarge top by=5.5mm,
+        overlay={
+            \foreach \x in {2cm, 3.5cm}{
+                \begin{scope}[shift={([xshift=\x]frame.north west)}]
+                    \path[draw=green!65!black, fill=green!10, line width=1mm] (0,0) arc (0:180:5mm);
+                    \path[fill=black] (-0.2, 0) arc (0:180:1mm);
+                \end{scope}
+            }
+        }
+    }
+}
+
+\begin{document}
+    \begin{tcolorbox}[frogbox, title=A Frogbox, fonttitle=\sffamily\bfseries]
+        \sffamily
+        To calculate the horizontal position the kinematic differential equations are needed:\\
+        \begin{align}
+            \dot{u}=u\cos{\psi}-v\sin{\psi}\\
+            \dot{e}=u\sin{\psi}+v\cos{\psi}
+        \end{align}
+        For small angles the following approximation can be used:\\
+        \begin{align}
+            \dot{n}=u-v\delta_{\psi}\\
+            \dot{e}=u\delta_{\psi}+v
+        \end{align}
+    \end{tcolorbox}
+\end{document}
