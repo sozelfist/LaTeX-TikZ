@@ -1,0 +1,316 @@
+"latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.intellisense.bibtexJSON.replace": {},
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk_rconly",
+            "command": "latexmk",
+            "args": ["%DOC%"],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": ["%DOCFILE%"],
+            "env": {}
+        },
+        {
+            "name": "rnw2tex",
+            "command": "Rscript",
+            "args": [
+                "-e",
+                "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+            ],
+            "env": {}
+        },
+        {
+            "name": "jnw2tex",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "jnw2texmintex",
+            "command": "julia",
+            "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+            ],
+            "env": {}
+        },
+        {
+            "name": "tectonic",
+            "command": "tectonic",
+            "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
+            "env": {}
+        }
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk 🔃",
+            "tools": ["latexmk"]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": ["latexmk_rconly"]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": ["lualatexmk"]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": ["rnw2tex", "latexmk"]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": ["jnw2tex", "latexmk"]
+        },
+        {
+            "name": "tectonic",
+            "tools": ["tectonic"]
+        }
+    ],
+    "latex-workshop.latex.search.rootFiles.include": [
+        "**/*.tex",
+        "**/*.rnw",
+        "**/*.Rnw"
+    ],
+    "latex-workshop.latex.search.rootFiles.exclude": [],
+    "latex-workshop.latex.rootFile.useSubFile": true,
+    "latex-workshop.latex.rootFile.doNotPrompt": true,
+    "latex-workshop.latex.texDirs": [],
+    "latex-workshop.latex.watch.files.ignore": [
+        "**/*.bbx",
+        "**/*.bbl",
+        "**/*.cbx",
+        "**/*.cfg",
+        "**/*.clo",
+        "**/*.cnf",
+        "**/*.def",
+        "**/*.dfu",
+        "**/*.enc",
+        "**/*.fd",
+        "**/*.fmt",
+        "**/*.lbx",
+        "**/*.map",
+        "**/*.mkii",
+        "**/*.pfb",
+        "**/*.tfm",
+        "**/*.vf",
+        "**/*.code.tex",
+        "**/*.sty",
+        "**/texmf-{dist,var}/**",
+        "**/Local/MiKTeX/**",
+        "**/Local/Programs/MiKTeX/**",
+        "**/Roaming/MiKTeX/**",
+        "**/Program*/MiKTeX*/**",
+        "**/.miktex/texmfs/**",
+        "/var/cache/miktex-texmf/**",
+        "/usr/local/share/miktex-texmf/**",
+        "**/Library/Application Support/MiKTeX/texmfs/**",
+        "/dev/null"
+    ],
+    "latex-workshop.latex.recipe.default": "first",
+    "latex-workshop.latex.magic.args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+    ],
+    "latex-workshop.latex.magic.bib.args": ["%DOCFILE%"],
+    "latex-workshop.latex.build.forceRecipeUsage": true,
+    "latex-workshop.progress.enabled": true,
+    "latex-workshop.progress.location": "Status Bar",
+    "latex-workshop.progress.runIconType": "Solid Circled",
+    "latex-workshop.progress.barLength": 15,
+    "latex-workshop.progress.barStyle": "Block Shading",
+    "latex-workshop.latex.outDir": "%DIR%",
+    "latex-workshop.view.pdf.ref.viewer": "auto",
+    "latex-workshop.view.pdf.tab.editorGroup": "right",
+    "latex-workshop.view.pdf.zoom": "auto",
+    "latex-workshop.view.pdf.scrollMode": 0,
+    "latex-workshop.view.pdf.spreadMode": 0,
+    "latex-workshop.view.pdf.hand": false,
+    "latex-workshop.view.pdf.trim": 0,
+    "latex-workshop.view.pdf.backgroundColor": "#ffffff",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.viewer.pdf.internal.keyboardEvent": "auto",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.synctex.path": "synctex",
+    "latex-workshop.synctex.synctexjs.enabled": true,
+    "latex-workshop.view.pdf.external.viewer.command": "",
+    "latex-workshop.view.pdf.external.viewer.args": ["%PDF%"],
+    "latex-workshop.view.pdf.external.synctex.command": "",
+    "latex-workshop.view.outline.sections": [
+        "part",
+        "chapter",
+        "section",
+        "subsection",
+        "subsubsection"
+    ],
+    "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.latex.clean.command": "latexmk",
+    "latex-workshop.latex.clean.args": ["-c", "%TEX%"],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.synctex(busy)",
+        "*.synctex.gz(busy)",
+        "*.nav"
+    ],
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latexindent.args": [
+        "-c",
+        "%DIR%/",
+        "%TMPFILE%",
+        "-y=defaultIndent: '%INDENT%'"
+    ],
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.trailingComma": true,
+    "latex-workshop.bibtex-format.sortby": ["key"],
+    "latex-workshop.bibtex-format.handleDuplicates": "Highlight Duplicates",
+    "latex-workshop.bibtex-format.tab": "4 spaces",
+    "latex-workshop.bibtex-format.align-equal.enabled": true,
+    "latex-workshop.bibtex-format.surround": "Curly braces",
+    "latex-workshop.bibtex-format.case": "lowercase",
+    "latex-workshop.bibtex-fields.sort.enabled": true,
+    "latex-workshop.bibtex-fields.order": [],
+    "latex-workshop.intellisense.update.delay": 1000,
+    "latex-workshop.kpsewhich.enabled": true,
+    "latex-workshop.intellisense.citation.maxfilesizeMB": 5,
+    "latex-workshop.intellisense.citation.label": "bibtex key",
+    "latex-workshop.intellisense.citation.format": [
+        "author",
+        "title",
+        "journal",
+        "publisher",
+        "booktitle",
+        "year"
+    ],
+    "latex-workshop.intellisense.citation.type": "inline",
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.bibDirs": [],
+    "latex-workshop.kpsewhich.path": "kpsewhich",
+    "latex-workshop.intellisense.commandsJSON.replace": {},
+    "latex-workshop.intellisense.package.dirs": [],
+    "latex-workshop.intellisense.useTabStops.enabled": true,
+    "latex-workshop.intellisense.optionalArgsEntries.enabled": true,
+    "latex-workshop.intellisense.triggers.latex": [],
+    "latex-workshop.intellisense.package.env.enabled": true,
+    "latex-workshop.intellisense.package.extra": [],
+    "latex-workshop.intellisense.unimathsymbols.enabled": false,
+    "latex-workshop.intellisense.includegraphics.preview.enabled": true,
+    "latex-workshop.intellisense.file.exclude": [
+        "**/*.aux",
+        "**/*.bbl",
+        "**/*.bcf",
+        "**/*.blg",
+        "**/*.idx",
+        "**/*.ind",
+        "**/*.lof",
+        "**/*.lot",
+        "**/*.out",
+        "**/*.toc",
+        "**/*.acn",
+        "**/*.acr",
+        "**/*.alg",
+        "**/*.glg",
+        "**/*.glo",
+        "**/*.gls",
+        "**/*.ist",
+        "**/*.fls",
+        "**/*.log",
+        "**/*.nav",
+        "**/*.snm",
+        "**/*.fdb_latexmk",
+        "**/*.synctex.gz",
+        "**/*.run.xml"
+    ],
+    "latex-workshop.intellisense.file.base": "root relative",
+    "latex-workshop.intellisense.includegraphics.preview.pdf.enabled": true,
+    "latex-workshop.docker.image.latex": "",
+    "latex-workshop.latexindent.path": "latexindent",
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "latex-workshop.texdoc.path": "texdoc",
+    "latex-workshop.hover.preview.enabled": true,
+    "latex-workshop.hover.preview.scale": 1,
+    "latex-workshop.hover.preview.cursor.enabled": true,
+    "latex-workshop.hover.preview.cursor.symbol": "\\!|\\!",
+    "latex-workshop.hover.preview.cursor.color": "auto",
+    "latex-workshop.hover.preview.newcommand.parseTeXFile.enabled": true,
+    "latex-workshop.hover.preview.newcommand.newcommandFile": "",
+    "latex-workshop.mathpreviewpanel.editorGroup": "below",
+    "latex-workshop.hover.preview.maxLines": 20,
+    "latex-workshop.hover.ref.enabled": true,
+    "latex-workshop.hover.ref.number.enabled": true,
+    "latex-workshop.hover.command.enabled": true,
+    "latex-workshop.view.outline.labels.enabled": true,
+    "latex-workshop.view.outline.floats.enabled": true,
+    "latex-workshop.view.outline.numbers.enabled": true,
+    "latex-workshop.texcount.path": "texcount",
+    "latex-workshop.texcount.args": [],
+    "latex-workshop.intellisense.update.aggressive.enabled": true,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
