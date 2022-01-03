@@ -1,0 +1,32 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, patterns}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath, amsfonts, amssymb, mathtools}
+
+\tcbset{
+    ribbonbox/.style={
+        enhanced,%
+        colback=red!5!white, colframe=red!75!black,%
+        fonttitle=\bfseries,%
+        overlay={%
+            \path[fill=blue!75!white, draw=blue, double=white!85!blue,%
+                preaction={opacity=0.6, fill=blue!75!white},%
+                line width=0.1mm, double distance=0.2mm,%
+                pattern=fivepointed stars, pattern color=white!75!blue]
+                ([xshift=-0.2mm, yshift=-1.02cm]frame.north east)%
+                -- ++(-1, 1) --++(-0.5, 0) --++(1.5, -1.5) --cycle;
+        }
+    },
+}
+
+\begin{document}
+    \begin{tcolorbox}[ribbonbox, title=A Ribbonbox, fonttitle=\sffamily\bfseries]
+        Fermat's Last theorem state that\\
+        \begin{equation*}
+            x^n+y^n=z^n
+        \end{equation*}
+        has no non-zero integer solutions for $x$, $y$ and $z$ when $n>2$.
+    \end{tcolorbox}
+\end{document}
