@@ -1,4 +1,5 @@
-"latex-workshop.view.pdf.viewer": "tab",
+{
+    "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.intellisense.bibtexJSON.replace": {},
     "latex-workshop.latex.tools": [
         {
@@ -313,4 +314,5 @@
     "latex-workshop.texcount.path": "texcount",
     "latex-workshop.texcount.args": [],
     "latex-workshop.intellisense.update.aggressive.enabled": true,
-    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoClean.run": "onBuilt"
+}
