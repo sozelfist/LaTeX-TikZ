@@ -15,7 +15,6 @@ $ cd <folder-name>
 $ pdflatex main.tex
 ```
 
-
 ## My Github Profile Picture
 
 ![github](TikZ/GitHubProfilePicture/github-profile-picture.png)
