@@ -1,6 +1,6 @@
 # LaTeX on Visual Studio Code
 
-##  Do you want to write LaTeX on VSCode
+## Do you want to write LaTeX on VSCode
 
 When we talk about LaTeX editing, people would mention **TeXstudio**, **WinEdt** or **TeXMaker** with ***MiKTeX*** or ***TeX Live***. For a long time, **Overleaf** was my one and only editor (online LaTeX editor). But as time I want to work locally on my computer, so I switched to the open-source, feature-rich VSCode.
 
