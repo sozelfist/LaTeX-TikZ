@@ -2,6 +2,15 @@
 
 📚 This is a repository for storing and sharing **LaTeX-TikZ**  and **PGFPlots** pictures.
 
+## Require
+
+[![windows](https://img.shields.io/badge/windows-11-blue?logo=windows&logoColor=blue&labelColor=000000)](https://www.microsoft.com/en-us/windows?r=1)
+[![git](https://img.shields.io/badge/Git-2.34.1.windows.1-f05032?logo=git&labelColor=000000)](https://git-scm.com/)
+[![github](https://img.shields.io/badge/GitHub-000000?logo=github&logoColor=181717&labelColor=white)](https://github.com)
+[![VSCode](https://img.shields.io/badge/Visual_Studio_Code-1.63.2-1f425f.svg?logo=visual-studio-code&logoColor=007acc&labelColor=000000)](https://code.visualstudio.com/)
+[![texlive](https://img.shields.io/badge/TeXLive-2021-teal?logo=latex&logoColor=teal&labelColor=000000)](https://tug.org/texlive/)
+[![latex-workshop](https://img.shields.io/badge/latex_workshop-8.23.0-007acc?logo=visual-studio-code&logoColor=007acc&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+
 ## Usage
 
 ```sh
@@ -47,16 +56,11 @@ $ pdflatex main.tex
 \end{document}
 ```
 
-## Language and Tools
-
-[![windows](https://img.shields.io/badge/windows-11-blue?logo=windows&logoColor=blue&labelColor=000000)](https://www.microsoft.com/en-us/windows?r=1)
-[![git](https://img.shields.io/badge/Git-2.34.1.windows.1-f05032?logo=git&labelColor=000000)](https://git-scm.com/)
-[![github](https://img.shields.io/badge/GitHub-000000?logo=github&logoColor=181717&labelColor=white)](https://github.com)
-[![VSCode](https://img.shields.io/badge/Visual_Studio_Code-1.63.2-1f425f.svg?logo=visual-studio-code&logoColor=007acc&labelColor=000000)](https://code.visualstudio.com/)
-[![texlive](https://img.shields.io/badge/TeXLive-2021-teal?logo=latex&logoColor=teal&labelColor=000000)](https://tug.org/texlive/)
-[![latex-workshop](https://img.shields.io/badge/latex_workshop-8.23.0-007acc?logo=visual-studio-code&logoColor=007acc&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
-
 ## My LaTeX Workshop extensions `.config`
 
 I placed all settings of **LaTeX Workshop** ext here
 [`latex-workshop.json`](.config/latex-workshop.json)
+
+## How to write LaTeX on Visual Studio Code
+
+To do that, you simply just install TeXLive and LaTeX Workshop extension. You can get more detail information about how to do it [here](.config/install-latex-vscode.md).
