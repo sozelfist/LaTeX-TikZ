@@ -84,12 +84,12 @@
         \draw[cyan] (A-2-1.south) -- (C-2-2.south);
         \draw[cyan] (B-1-2.west)  -- (C-2-2.west);
         \draw[cyan] (B-1-2.east)  -- (C-2-2.east);
-        \draw[<->, red](A-2-1) to[out=90, in=180] node[mul arrow] (x) {$a_{21}\times b_{12}$} (B-1-2);
-        \draw[<->, red](A-2-2) to[out=90, in=180]
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-2-1) to[out=90, in=180] node[mul arrow] (x) {$a_{21}\times b_{12}$} (B-1-2);
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-2-2) to[out=90, in=180]
         node[mul arrow] (y) {$a_{22}\times b_{22}$} (B-2-2);
-        \draw[<->, red](A-2-4) to[out=90, in=180]
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-2-4) to[out=90, in=180]
 	    node[mul arrow] (z) {$a_{2p}\times b_{p2}$} (B-4-2);
-        \draw[red, ->] (x) to node[plus arrow] {$+$} (y) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (z) to (C-2-2.north west);
+        \draw[red, ->, shorten >=1pt, shorten <= 1pt] (x) to node[plus arrow] {$+$} (y) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (z) to (C-2-2.north west);
     \end{tikzpicture}
 
     \begin{tikzpicture}[>=latex, cap=round, join=round]
@@ -139,10 +139,10 @@
         \draw[cyan] (A-3-1.south) -- (C-3-3.south);
         \draw[cyan] (B-1-3.west)  -- (C-3-3.west);
         \draw[cyan] (B-1-3.east)  -- (C-3-3.east);
-        \draw[<->, red](A-3-1) to[out=90, in=180] node[mul arrow] (x) {$a_{i1}\times b_{1j}$} (B-1-3);
-        \draw[<->, red](A-3-3) to[out=90, in=180] node[mul arrow] (y) {$a_{ik}\times b_{kj}$}(B-3-3);
-        \draw[<->, red](A-3-5) to[out=90, in=180] node[mul arrow] (z) {$a_{ip}\times b_{pj}$}(B-5-3);
-        \draw[->, red] (x) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (y) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (z);
-        \draw[snake arrow] (z) -- (C-3-3.north west);
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-3-1) to[out=90, in=180] node[mul arrow] (x) {$a_{i1}\times b_{1j}$} (B-1-3);
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-3-3) to[out=90, in=180] node[mul arrow] (y) {$a_{ik}\times b_{kj}$}(B-3-3);
+        \draw[<->, red, shorten >=1pt, shorten <= 1pt](A-3-5) to[out=90, in=180] node[mul arrow] (z) {$a_{ip}\times b_{pj}$}(B-5-3);
+        \draw[->, red, shorten >=1pt, shorten <= 1pt] (x) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (y) to node[plus arrow] {$+\raisebox{.5ex}{\ldots}+$} (z);
+        \draw[snake arrow, shorten >=1pt, shorten <= 1pt] (z) -- (C-3-3.north west);
     \end{tikzpicture}
 \end{document}
