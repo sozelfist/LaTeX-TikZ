@@ -1,0 +1,55 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+% preamble
+\usepackage{tikz}       % library supports drawing vector graphics
+\usetikzlibrary{
+    calc,               % tikz's library supports performing                             arithmetic on the expression
+    backgrounds         % tikz's library to toggle a graphic to                         background mode
+}
+
+\begin{document}
+
+% color of spiral
+\definecolor{Teal}{RGB}{0,128,128}
+\def\color{Teal}
+% shader of spiral
+\newcounter{shader}
+% square root(s) of spiral
+\newcounter{root}
+
+\begin{tikzpicture}
+    % we split up the spiral into 3 layers (more layers depends on how many spiral layer in your spiral.)
+    % the first layer includes right triangles whose hypotenuse length lies between (\sqrt{2}\sqrt{99}]
+    % the second layer includes right triangles whose hypotenuse length lies between (\sqrt{2}\sqrt{49}]
+    % the third layer include right triangles whose hypotenuse length lies between (\sqrt{2}\sqrt{14}]
+    \foreach \y in {99, 48, 14}{
+        % set value for shader counter
+        \setcounter{shader}{1}
+        % sepecify starting points
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (0:1);
+        % draw layers
+        \foreach \x in {1,...,\y}{
+            % the point that lies above (B) at angle 90 and  constructs a right angle with the assistance of two starting points
+            \coordinate (C) at ($(B)!1cm!-90:(A)$);
+            % draw right triangle
+            \begin{pgfonlayer}{background}
+                \draw[fill=\color!\theshader] (A) -- (B) -- (C) -- cycle;
+            \end{pgfonlayer}
+            % set value for square root counter
+            \setcounter{root}{\x}
+            \addtocounter{root}{1}
+            % draw circle node whose text label is \theroot value
+            \node[fill=white, draw=\color!\theshader, circle, inner sep=1pt] at (C)
+                {$\sqrt{\theroot}$};
+            % update (B) to (C) to draw next right triangle
+            \coordinate (B) at (C);
+            % update shader counter
+            \pgfmathsetcounter{shader}{\theshader+2}
+            \setcounter{shader}{\theshader}
+       }
+    }
+    % add circle node of \sqrt{1}
+    \node[fill=white, draw=white, circle, inner sep=1pt] at (0:1) {$\sqrt{1}$};
+\end{tikzpicture}
+\end{document}
