@@ -30,15 +30,15 @@
             % Input layer
             \node[inp] (inp-\y) at (0, \y) {};
             % Hidden layer 1
-            \node[hl1] (hl1-\y) at (2.5, \y) {};
+            \node[hl1] (hl1-\y) at (3, \y) {};
             % Hidden layer 2
-            \node[hl2] (hl2-\y) at (5, \y) {};
+            \node[hl2] (hl2-\y) at (6, \y) {};
             % Hidden layer 3
-            \node[hl3] (hl3-\y) at (7.5, \y) {};
+            \node[hl3] (hl3-\y) at (9, \y) {};
         }
         \foreach \y in {2, 3}{
             % Output layer
-            \node[op, pin={[pin edge={-latex, gold}, pin distance=1.5cm]right:$ $}] (op-\y) at (10, \y) {};
+            \node[op, pin={[pin edge={-latex, gold}, pin distance=1.5cm]right:$ $}] (op-\y) at (12, \y) {};
         }
         % draw connecting lines
         \foreach \x in {0, 1, 2, 3, 4, 5}{
@@ -71,16 +71,16 @@
             hl2-5/T_2/hl2/(Hidden Layer 2)/crimson,
             hl3-5/T_3/hl3/(Hidden Layer 3)/darkorange%
         }{
-            \node[anchor=south, text width=2cm, text centered, inner sep=0pt] (\label) at (\pos.north) {\color{\col}\tiny$\mathsf{\layer}$ \\[-2pt] \name};
+            \node[anchor=south, text width=3cm, text centered, inner sep=0pt] (\label) at (\pos.north) {\color{\col}$\mathsf{\layer}$ \\[-2pt] \name};
         }
-        \node[anchor=south, text width=2cm, text centered, inner sep=0pt, yshift=0.75cm] at (op-3.north) {\tiny$\mathsf{\textcolor{gold}{T_4}=\textcolor{green}{\hat{Y}}}$ \\[-2pt] \textcolor{gold}{Output Layer}};
-        \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.5cm, color=blue!50] (feature/image) [left of=inp] {\tiny$\mathsf{X}$ \\[-2pt] Feature/Image};
-        \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.5cm, color=green] (label) [left of=feature/image] {\tiny$\mathsf{Y}$ \\[-2pt] Label};
+        \node[anchor=south, text width=2cm, text centered, inner sep=0pt, yshift=0.75cm] at (op-3.north) {$\mathsf{\textcolor{gold}{T_4}=\textcolor{green}{\widehat{Y}}}$ \\[-2pt] \textcolor{gold}{Output Layer}};
+        \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.75cm, color=blue!50] (feature/image) [left of=inp] {$\mathsf{X}$ \\[-2pt] Feature/Image};
+        \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.5cm, color=green] (label) [left of=feature/image] {$\mathsf{Y}$ \\[-2pt] Label};
         % add names of image
-        \node[anchor=center, color=green] at (-5, 3.5) {Cat};
-        \node[anchor=center, color=green] at (-5, 1.5) {Dog};
+        \node[below of = label, yshift=-1.25cm, color=green] {Cat};
+        \node[below of = label, yshift=-3cm, color=green] {Dog};
         % add images
-        \node[anchor=center] at (-2.5, 3.5){\includegraphics[scale=0.05]{./images/cat.jpg}};
-        \node[anchor=center] at (-2.5, 1.5) {\includegraphics[scale=0.135]{./images/dog.jpg}};
+        \node[below of = feature/image, yshift=-1.25cm, xshift=0.2cm] {\includegraphics[scale=0.05]{./images/cat.jpg}};
+        \node[below of = feature/image, yshift=-3cm, xshift=0.2cm] {\includegraphics[scale=0.135]{./images/dog.jpg}};
     \end{tikzpicture}
 \end{document}
