@@ -1,0 +1,14 @@
+\documentclass[tikz, border=10pt]{standalone}
+
+\usepackage{tikz}
+\def\r{2cm}     % circle's radius
+
+\begin{document}
+    \begin{tikzpicture}
+        \filldraw[fill=white] (0, 0) circle (\r);       % draw circle
+        \fill[color=black] (270:\r) arc (270:90:\r) arc (90:-90:0.5*\r) arc (90:270:0. 5*\r);  % draw black half
+        % draw small circles
+        \fill[color=white] (0, 0.5*\r) circle (0.1*\r);     
+        \fill[color=black] (0, -0.5*\r) circle (0.1*\r);
+    \end{tikzpicture}
+\end{document}
