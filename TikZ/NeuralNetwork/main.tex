@@ -21,6 +21,9 @@
     hl3/.style = {node, fill=darkorange},
     op/.style = {node, fill=gold}
 }
+\usepackage{pgfmath}
+% declare a random list of line thickness
+\pgfmathdeclarerandomlist{thickness}{{thick}{semithick}{}{thin}{ultra thin}}
 
 \begin{document}
     \begin{tikzpicture}
@@ -43,18 +46,22 @@
         % draw connecting lines
         \foreach \x in {0, 1, 2, 3, 4, 5}{
             \foreach \y in {0, 1, 2, 3, 4, 5}{
+                \pgfmathrandomitem{\t}{thickness}
                 % from input layer to hidden layer 1
-                \draw[mediumpurple] (inp-\x) -- (hl1-\y);
+                \draw[mediumpurple, \t] (inp-\x) -- (hl1-\y);
                 % from hidden layer 1 to hidden layer 2
-                \draw[telemagenta] (hl1-\x) -- (hl2-\y);
+                \pgfmathrandomitem{\t}{thickness}
+                \draw[telemagenta, \t] (hl1-\x) -- (hl2-\y);
                 % from hidden layer 2 to hidden layer 3
-                \draw[crimson] (hl2-\x) -- (hl3-\y);
+                \pgfmathrandomitem{\t}{thickness}
+                \draw[crimson, \t] (hl2-\x) -- (hl3-\y);
             }
         }
         % from hidden layer 3 to output layer
         \foreach \x in {0, 1, 2, 3, 4, 5}{
             \foreach \y in {2, 3}{
-                \draw[darkorange] (hl3-\x) -- (op-\y);
+                \pgfmathrandomitem{\t}{thickness}
+                \draw[darkorange, \t] (hl3-\x) -- (op-\y);
             }
         }
         % from source to input layer
@@ -73,7 +80,7 @@
         }{
             \node[anchor=south, text width=3cm, text centered, inner sep=0pt] (\label) at (\pos.north) {\color{\col}$\mathsf{\layer}$ \\[-2pt] \name};
         }
-        \node[anchor=south, text width=2cm, text centered, inner sep=0pt, yshift=0.75cm] at (op-3.north) {$\mathsf{\textcolor{gold}{T_4}=\textcolor{green}{\widehat{Y}}}$ \\[-2pt] \textcolor{gold}{Output Layer}};
+        \node[anchor=south, text width=3cm, text centered, inner sep=0pt, yshift=0.75cm] at (op-3.north) {$\mathsf{\textcolor{gold}{T_4}=\textcolor{green}{\widehat{Y}}}$ \\[-2pt] \textcolor{gold}{Output Layer}};
         \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.75cm, color=blue!50] (feature/image) [left of=inp] {$\mathsf{X}$ \\[-2pt] Feature/Image};
         \node[text width=2cm, text centered, inner sep=0pt, xshift=-1.5cm, color=green] (label) [left of=feature/image] {$\mathsf{Y}$ \\[-2pt] Label};
         % add names of image
