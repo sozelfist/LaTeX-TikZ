@@ -1,0 +1,23 @@
+name: Build LaTeX TikZ Project
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: tug/latex
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build all LaTeX projects
+        run: |
+          find . -name "main.tex" -execdir pdflatex -interaction=nonstopmode -halt-on-error {} \;
+
+      - name: Archive all PDFs
+        run: |
+          find . -name "main.pdf" -execdir cp {} {}.pdf \;
+          find . -name "main.pdf.pdf" -execdir  uses: actions/upload-artifact@v2  with: { name: {}  path: {} } \;
