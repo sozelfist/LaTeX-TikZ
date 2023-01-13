@@ -6,12 +6,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    container:
-      image: tug/latex
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-base texlive-latex-extra
 
       - name: Build all LaTeX projects
         run: |
