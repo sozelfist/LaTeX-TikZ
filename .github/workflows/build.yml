@@ -1,0 +1,25 @@
+name: Build LaTeX TikZ Project
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-base texlive-latex-extra
+
+      - name: Build all LaTeX projects
+        run: |
+          find . -name "main.tex" -execdir pdflatex -interaction=nonstopmode -halt-on-error {} \;
+
+      - name: Archive all PDFs
+        run: |
+          find . -name "main.pdf" -execdir cp {} {}.pdf \;
+          find . -name "main.pdf.pdf" -execdir  uses: actions/upload-artifact@v2  with: { name: {}  path: {} } \;
