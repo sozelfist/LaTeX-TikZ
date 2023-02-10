@@ -1,0 +1,20 @@
+\documentclass[tikz,border=1mm]{standalone}
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}
+    \def\r{1}
+    \pgfmathsetmacro\angle{atan(2/sqrt(3))}
+    \pgfmathsetmacro{\ra}{sqrt(3)*\r}
+    \pgfmathsetmacro{\rb}{sqrt(7)*\r}
+    \pgfmathsetmacro{\rc}{sqrt(7)*\r/sqrt(3)}
+    
+    \foreach \x in {0, 60, ..., 300} {
+        \draw[line width=11pt, join=round, cap=round, rotate=\x]
+            (90:\r) -- ++(-30:2*\r) -- ++(-90:2*\r) 
+            arc (-\angle+30:-\angle-90:\rc);
+    }
+\end{tikzpicture}
+\end{document}
+
